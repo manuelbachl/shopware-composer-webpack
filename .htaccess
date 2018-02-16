@@ -33,12 +33,12 @@ RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization},L]
 #SetEnvIf Host "staging.test.shopware.in" SHOPWARE_ENV=staging
 
 # Development environment
-#SetEnvIf Host "dev.shopware.in" SHOPWARE_ENV=dev
-#SetEnv SHOPWARE_ENV dev
+SetEnvIf Host "shopware.loc" SHOPWARE_ENV=dev
+SetEnv SHOPWARE_ENV dev
 
+DirectoryIndex shopware.php
 DirectoryIndex index.html
 DirectoryIndex index.php
-DirectoryIndex shopware.php
 
 # Disables download of configuration
 <Files ~ "\.(tpl|yml|ini)$">
@@ -96,9 +96,9 @@ DirectoryIndex shopware.php
 </IfModule>
 
 <IfModule mod_php5.c>
-#  php_value memory_limit 256M
-#  php_value max_execution_time 120
-#  php_value upload_max_filesize 20M
+   php_value memory_limit 512M
+   php_value max_execution_time 120
+   php_value upload_max_filesize 20M
    php_flag phar.readonly off
    php_flag magic_quotes_gpc off
    php_flag session.auto_start off

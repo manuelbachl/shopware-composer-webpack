@@ -1,3 +1,7 @@
+# Dev-Environment
+/htdocs
+/index.php
+
 engine/*
 .env
 
